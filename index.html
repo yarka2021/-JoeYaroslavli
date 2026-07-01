@@ -1,1 +1,82 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
+<title>Joe Yaroslavli</title>
+
+<style>
+html,body{
+    margin:0;
+    padding:0;
+    overflow:hidden;
+    background:#202020;
+}
+
+#game{
+    width:100vw;
+    height:100vh;
+}
+</style>
+
+<script src="https://cdn.jsdelivr.net/npm/phaser@3.90.0/dist/phaser.min.js"></script>
+</head>
+
+<body>
+
+<div id="game"></div>
+
+<script>
+
+const config = {
+
+    type: Phaser.AUTO,
+
+    parent:"game",
+
+    width:window.innerWidth,
+
+    height:window.innerHeight,
+
+    backgroundColor:"#4fa7ff",
+
+    physics:{
+        default:"arcade",
+        arcade:{
+            debug:false
+        }
+    },
+
+    scene:{
+        preload:preload,
+        create:create,
+        update:update
+    }
+
+};
+
+const game=new Phaser.Game(config);
+
+let player;
+
+function preload(){
+
+}
+
+function create(){
+
+    player=this.add.rectangle(300,300,40,40,0x0066ff);
+
+    this.cameras.main.startFollow(player);
+
+}
+
+function update(){
+
+}
+
+</script>
+
+</body>
+</html>
